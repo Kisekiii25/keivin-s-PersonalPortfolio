@@ -2,15 +2,7 @@ let navButton = document.getElementsByClassName("yo")[0]
 let navLinks = document.getElementsByClassName("linksContainer")[0]
 
 const result = document.getElementById('result');
-
-const email = document.getElementById('email');
-const name = document.getElementById('name');
-const message = document.getElementById('message');
 const form = document.getElementById('form');
-
-// email.value = "";
-// name.value = "";
-// message.value = "";
 
 
 form.addEventListener('submit', function(e) {
@@ -30,6 +22,7 @@ form.addEventListener('submit', function(e) {
             },
             body: json
         })
+        
         .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
@@ -43,6 +36,7 @@ form.addEventListener('submit', function(e) {
             console.log(error);
             result.innerHTML = "Something went wrong!";
         })
+
         .then(function() {
             form.reset();
             setTimeout(() => {
